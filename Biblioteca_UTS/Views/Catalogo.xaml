@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Biblioteca_UTS.Views.Catalogo"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#FAF2F4"
+             Title="Catalogo">
+    <Grid RowDefinitions="Auto, *, Auto">
+
+        <!-- 1. ENCABEZADO SUPERIOR -->
+        <Grid Grid.Row="0"
+              BackgroundColor="#6A132F"
+              Padding="16,14"
+              ColumnDefinitions="Auto, *, Auto, Auto"
+              ColumnSpacing="12">
+
+            <!-- Ícono de libro -->
+            <Grid WidthRequest="34" HeightRequest="26" VerticalOptions="Center">
+                <Path Stroke="White"
+                      StrokeThickness="1.8"
+                      StrokeLineJoin="Round"
+                      Data="M 17,5 C 12.5,2 6,2 2,3.5 L 2,20 C 6,18.5 12.5,18.5 17,21.5 C 21.5,18.5 28,18.5 32,20 L 32,3.5 C 28,2 21.5,2 17,5 Z" />
+                <Path Stroke="White"
+                      StrokeThickness="1.8"
+                      Data="M 17,5 L 17,21.5" />
+            </Grid>
+
+            <!-- Título Biblioteca UTS -->
+            <Label Grid.Column="1"
+                   Text="Biblioteca UTS"
+                   TextColor="White"
+                   FontSize="19"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center" />
+
+            <!-- Ícono Campana -->
+            <Path Grid.Column="2"
+                  Stroke="White"
+                  StrokeThickness="1.8"
+                  WidthRequest="22"
+                  HeightRequest="22"
+                  Aspect="Uniform"
+                  VerticalOptions="Center"
+                  Data="M 12,2 C 8.69,2 6,4.69 6,8 L 6,14 L 4,16 L 4,17 L 20,17 L 20,16 L 18,14 L 18,8 C 18,4.69 15.31,2 12,2 Z M 10,18 C 10,19.1 10.9,20 12,20 C 13.1,20 14,19.1 14,18" />
+
+            <!-- Ícono Perfil Circular -->
+            <Border Grid.Column="3"
+                    BackgroundColor="White"
+                    WidthRequest="30"
+                    HeightRequest="30"
+                    StrokeThickness="0"
+                    VerticalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <Path Fill="#6A132F"
+                      WidthRequest="18"
+                      HeightRequest="18"
+                      Aspect="Uniform"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center"
+                      Data="M 12,12 C 15.31,12 18,9.31 18,6 C 18,2.69 15.31,0 12,0 C 8.69,0 6,2.69 6,6 C 6,9.31 8.69,12 12,12 Z M 12,15 C 7.99,15 0,17.01 0,21 L 0,24 L 24,24 L 24,21 C 24,17.01 16.01,15 12,15 Z" />
+            </Border>
+        </Grid>
+
+        <!-- 2. CUERPO PRINCIPAL (MENÚ LATERAL + CATÁLOGO) -->
+        <Grid Grid.Row="1" ColumnDefinitions="126, *" RowDefinitions="Auto, *">
+
+            <!-- Fondo sombreado de la columna lateral -->
+            <BoxView Grid.RowSpan="2"
+                     Grid.Column="0"
+                     Color="#EFE3E7" />
+
+            <!-- Título de sección -->
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Text="Catálogo"
+                   TextColor="#1E1E1E"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   Margin="16,16,16,12" />
+
+            <!-- MENÚ LATERAL IZQUIERDO -->
+            <VerticalStackLayout Grid.Row="1"
+                                 Grid.Column="0"
+                                 Padding="8,4,8,12"
+                                 Spacing="10">
+
+                <!-- Opción: Inicio -->
+                <HorizontalStackLayout Padding="8,8" Spacing="8">
+                    <Path Fill="#6A132F"
+                          WidthRequest="16"
+                          HeightRequest="16"
+                          Aspect="Uniform"
+                          VerticalOptions="Center"
+                          Data="M 10,20 L 10,14 L 14,14 L 14,20 L 19,20 L 19,12 L 22,12 L 12,3 L 2,12 L 5,12 L 5,20 Z" />
+                    <Label Text="Inicio"
+                           TextColor="#2B2B2B"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Opción Activa: Catálogo -->
+                <Border BackgroundColor="#6A132F"
+                        StrokeThickness="0"
+                        Padding="8,9">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+                    <HorizontalStackLayout Spacing="8">
+                        <Path Fill="White"
+                              WidthRequest="16"
+                              HeightRequest="16"
+                              Aspect="Uniform"
+                              VerticalOptions="Center"
+                              Data="M 2,4 C 6,2 10,2 12,4 C 14,2 18,2 22,4 L 22,19 C 18,17 14,17 12,19 C 10,17 6,17 2,19 Z" />
+                        <Label Text="Catálogo"
+                               TextColor="White"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+                </Border>
+
+                <!-- Opción: Mis Préstamos -->
+                <HorizontalStackLayout Padding="8,8" Spacing="8">
+                    <Path Fill="#6A132F"
+                          WidthRequest="16"
+                          HeightRequest="16"
+                          Aspect="Uniform"
+                          VerticalOptions="Center"
+                          Data="M 4,4 L 20,4 L 20,8 L 4,8 Z M 4,10 L 20,10 L 20,14 L 4,14 Z M 4,16 L 20,16 L 20,20 L 4,20 Z" />
+                    <Label Text="Mis Préstamos"
+                           TextColor="#2B2B2B"
+                           FontSize="12"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Opción: Mi Perfil -->
+                <HorizontalStackLayout Padding="8,8" Spacing="8">
+                    <Path Fill="#6A132F"
+                          WidthRequest="16"
+                          HeightRequest="16"
+                          Aspect="Uniform"
+                          VerticalOptions="Center"
+                          Data="M 12,12 C 15.31,12 18,9.31 18,6 C 18,2.69 15.31,0 12,0 C 8.69,0 6,2.69 6,6 C 6,9.31 8.69,12 12,12 Z M 12,15 C 7.99,15 0,17.01 0,21 L 0,24 L 24,24 L 24,21 C 24,17.01 16.01,15 12,15 Z" />
+                    <Label Text="Mi Perfil"
+                           TextColor="#2B2B2B"
+                           FontSize="13"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <!-- Opción: Cerrar Sesión -->
+                <HorizontalStackLayout Padding="8,8" Spacing="8">
+                    <Path Fill="#6A132F"
+                          WidthRequest="16"
+                          HeightRequest="16"
+                          Aspect="Uniform"
+                          VerticalOptions="Center"
+                          Data="M 17,7 L 15.59,8.41 L 18.17,11 L 8,11 L 8,13 L 18.17,13 L 15.59,15.58 L 17,17 L 22,12 Z M 4,5 L 12,5 L 12,3 L 4,3 C 2.9,3 2,3.9 2,5 L 2,19 C 2,20.1 2.9,21 4,21 L 12,21 L 12,19 L 4,19 Z" />
+                    <Label Text="Cerrar Sesión"
+                           TextColor="#2B2B2B"
+                           FontSize="12"
+                           VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+
+            <!-- ÁREA DERECHA: BUSCADOR Y TARJETAS DE LIBROS -->
+            <Grid Grid.Row="1"
+                  Grid.Column="1"
+                  RowDefinitions="Auto, *"
+                  Padding="10,0,10,8"
+                  RowSpacing="10">
+
+                <!-- Barra de búsqueda -->
+                <Border Grid.Row="0"
+                        BackgroundColor="White"
+                        Stroke="#D5CBD0"
+                        StrokeThickness="1"
+                        HeightRequest="42"
+                        Padding="10,0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="10" />
+                    </Border.StrokeShape>
+
+                    <Grid ColumnDefinitions="20, *" ColumnSpacing="8" VerticalOptions="Center">
+                        <Path Fill="#6A132F"
+                              WidthRequest="16"
+                              HeightRequest="16"
+                              Aspect="Uniform"
+                              VerticalOptions="Center"
+                              Data="M 15.5,14 L 14.71,14 L 14.43,13.73 C 15.41,12.59 16,11.11 16,9.5 C 16,5.91 13.09,3 9.5,3 C 5.91,3 3,5.91 3,9.5 C 3,13.09 5.91,16 9.5,16 C 11.11,16 12.59,15.41 13.73,14.43 L 14,14.71 L 14,15.5 L 19,20.49 L 20.49,19 L 15.5,14 Z M 9.5,14 C 7.01,14 5,11.99 5,9.5 C 5,7.01 7.01,5 9.5,5 C 11.99,5 14,7.01 14,9.5 C 14,11.99 11.99,14 9.5,14 Z" />
+
+                        <Entry Grid.Column="1"
+                               Placeholder="Buscar libro..."
+                               PlaceholderColor="#7A7A7A"
+                               TextColor="#222222"
+                               FontSize="13"
+                               BackgroundColor="Transparent"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+
+                <!-- Cuadrícula 2x2 de Libros -->
+                <ScrollView Grid.Row="1">
+                    <Grid ColumnDefinitions="*, *"
+                          RowDefinitions="Auto, Auto"
+                          ColumnSpacing="8"
+                          RowSpacing="10">
+
+                        <!-- LIBRO 1: Hábitos Atómicos -->
+                        <Border Grid.Row="0" Grid.Column="0"
+                                BackgroundColor="White"
+                                Stroke="#EAE0E4"
+                                StrokeThickness="1"
+                                Padding="8">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Border BackgroundColor="#F6F1E3"
+                                        StrokeThickness="0"
+                                        HeightRequest="95"
+                                        WidthRequest="80"
+                                        HorizontalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="4" />
+                                    </Border.StrokeShape>
+                                    <Label Text="Hábitos&#10;Atómicos"
+                                           TextColor="#9A6B19"
+                                           FontSize="12"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="Center" />
+                                </Border>
+                                <Label Text="Hábitos Atómicos"
+                                       TextColor="#1E1E1E"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalTextAlignment="Center" />
+                                <Label Text="James Clear"
+                                       TextColor="#555555"
+                                       FontSize="10"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalTextAlignment="Center" />
+                                <Button Text="Ver detalles"
+                                        BackgroundColor="#6A132F"
+                                        TextColor="White"
+                                        FontSize="11"
+                                        FontAttributes="Bold"
+                                        HeightRequest="30"
+                                        Padding="8,0"
+                                        CornerRadius="8"
+                                        Margin="0,4,0,0" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- LIBRO 2: 1984 -->
+                        <Border Grid.Row="0" Grid.Column="1"
+                                BackgroundColor="White"
+                                Stroke="#EAE0E4"
+                                StrokeThickness="1"
+                                Padding="8">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Border BackgroundColor="#B8291C"
+                                        StrokeThickness="0"
+                                        HeightRequest="95"
+                                        WidthRequest="80"
+                                        HorizontalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="4" />
+                                    </Border.StrokeShape>
+                                    <Label Text="1984"
+                                           TextColor="#1E1E1E"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="Start"
+                                           Margin="0,8,0,0" />
+                                </Border>
+                                <Label Text="1984"
+                                       TextColor="#1E1E1E"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalTextAlignment="Center" />
+                                <Label Text="George Orwell"
+                                       TextColor="#555555"
+                                       FontSize="10"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalTextAlignment="Center" />
+                                <Button Text="Ver detalles"
+                                        BackgroundColor="#6A132F"
+                                        TextColor="White"
+                                        FontSize="11"
+                                        FontAttributes="Bold"
+                                        HeightRequest="30"
+                                        Padding="8,0"
+                                        CornerRadius="8"
+                                        Margin="0,4,0,0" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- LIBRO 3: El Principito -->
+                        <Border Grid.Row="1" Grid.Column="0"
+                                BackgroundColor="White"
+                                Stroke="#EAE0E4"
+                                StrokeThickness="1"
+                                Padding="8">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Border BackgroundColor="#2A4B8D"
+                                        StrokeThickness="0"
+                                        HeightRequest="95"
+                                        WidthRequest="80"
+                                        HorizontalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="4" />
+                                    </Border.StrokeShape>
+                                    <Label Text="El Principito"
+                                           TextColor="White"
+                                           FontSize="11"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="Start"
+                                           Margin="0,10,0,0" />
+                                </Border>
+                                <Label Text="El Principito"
+                                       TextColor="#1E1E1E"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalTextAlignment="Center" />
+                                <Label Text="Antoine de Saint-Exupéry"
+                                       TextColor="#555555"
+                                       FontSize="10"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalTextAlignment="Center" />
+                                <Button Text="Ver detalles"
+                                        BackgroundColor="#6A132F"
+                                        TextColor="White"
+                                        FontSize="11"
+                                        FontAttributes="Bold"
+                                        HeightRequest="30"
+                                        Padding="8,0"
+                                        CornerRadius="8"
+                                        Margin="0,4,0,0" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- LIBRO 4: Cien Años de Soledad -->
+                        <Border Grid.Row="1" Grid.Column="1"
+                                BackgroundColor="White"
+                                Stroke="#EAE0E4"
+                                StrokeThickness="1"
+                                Padding="8">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Border BackgroundColor="#234D20"
+                                        StrokeThickness="0"
+                                        HeightRequest="95"
+                                        WidthRequest="80"
+                                        HorizontalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="4" />
+                                    </Border.StrokeShape>
+                                    <Label Text="Cien Años&#10;de Soledad"
+                                           TextColor="#F5E663"
+                                           FontSize="11"
+                                           FontAttributes="Bold"
+                                           HorizontalTextAlignment="Center"
+                                           VerticalOptions="Center" />
+                                </Border>
+                                <Label Text="Cien Años de Soledad"
+                                       TextColor="#1E1E1E"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalTextAlignment="Center" />
+                                <Label Text="Gabriel García Márquez"
+                                       TextColor="#555555"
+                                       FontSize="10"
+                                       LineBreakMode="TailTruncation"
+                                       HorizontalTextAlignment="Center" />
+                                <Button Text="Ver detalles"
+                                        BackgroundColor="#6A132F"
+                                        TextColor="White"
+                                        FontSize="11"
+                                        FontAttributes="Bold"
+                                        HeightRequest="30"
+                                        Padding="8,0"
+                                        CornerRadius="8"
+                                        Margin="0,4,0,0" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                    </Grid>
+                </ScrollView>
+            </Grid>
+        </Grid>
+
+        <!-- 3. BARRA DE NAVEGACIÓN INFERIOR -->
+        <Grid Grid.Row="2"
+              BackgroundColor="White"
+              ColumnDefinitions="*, *, *, *"
+              Padding="6,6">
+
+            <!-- Tab: Inicio -->
+            <VerticalStackLayout Grid.Column="0" Spacing="3" HorizontalOptions="Center" VerticalOptions="Center">
+                <Path Fill="#4A4A4A"
+                      WidthRequest="20"
+                      HeightRequest="20"
+                      Aspect="Uniform"
+                      HorizontalOptions="Center"
+                      Data="M 10,20 L 10,14 L 14,14 L 14,20 L 19,20 L 19,12 L 22,12 L 12,3 L 2,12 L 5,12 L 5,20 Z" />
+                <Label Text="Inicio"
+                       TextColor="#4A4A4A"
+                       FontSize="11"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <!-- Tab Activa: Catálogo -->
+            <Border Grid.Column="1"
+                    BackgroundColor="#F5EAEE"
+                    StrokeThickness="0"
+                    Padding="8,5">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="3" HorizontalOptions="Center">
+                    <Path Fill="#6A132F"
+                          WidthRequest="20"
+                          HeightRequest="20"
+                          Aspect="Uniform"
+                          HorizontalOptions="Center"
+                          Data="M 2,4 C 6,2 10,2 12,4 C 14,2 18,2 22,4 L 22,19 C 18,17 14,17 12,19 C 10,17 6,17 2,19 Z" />
+                    <Label Text="Catálogo"
+                           TextColor="#6A132F"
+                           FontSize="11"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Tab: Mis Préstamos -->
+            <VerticalStackLayout Grid.Column="2" Spacing="3" HorizontalOptions="Center" VerticalOptions="Center">
+                <Path Fill="#4A4A4A"
+                      WidthRequest="20"
+                      HeightRequest="20"
+                      Aspect="Uniform"
+                      HorizontalOptions="Center"
+                      Data="M 4,4 L 20,4 L 20,8 L 4,8 Z M 4,10 L 20,10 L 20,14 L 4,14 Z M 4,16 L 20,16 L 20,20 L 4,20 Z" />
+                <Label Text="Mis Préstamos"
+                       TextColor="#4A4A4A"
+                       FontSize="11"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+            <!-- Tab: Perfil -->
+            <VerticalStackLayout Grid.Column="3" Spacing="3" HorizontalOptions="Center" VerticalOptions="Center">
+                <Path Fill="#4A4A4A"
+                      WidthRequest="20"
+                      HeightRequest="20"
+                      Aspect="Uniform"
+                      HorizontalOptions="Center"
+                      Data="M 12,12 C 15.31,12 18,9.31 18,6 C 18,2.69 15.31,0 12,0 C 8.69,0 6,2.69 6,6 C 6,9.31 8.69,12 12,12 Z M 12,15 C 7.99,15 0,17.01 0,21 L 0,24 L 24,24 L 24,21 C 24,17.01 16.01,15 12,15 Z" />
+                <Label Text="Perfil"
+                       TextColor="#4A4A4A"
+                       FontSize="11"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

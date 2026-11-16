@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Biblioteca_UTS.Views.NewPage1"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#FAF2F4">
+
+    <Grid>
+        <!-- Ondas decorativas inferiores -->
+        <Grid VerticalOptions="End" HeightRequest="85" InputTransparent="True">
+            <Path Fill="#F2DFE5"
+                  Aspect="Fill"
+                  Data="M 0,25 Q 110,65 230,35 T 400,20 L 400,85 L 0,85 Z" />
+            <Path Fill="#E5C4CE"
+                  Aspect="Fill"
+                  Data="M 0,55 Q 130,75 260,42 T 400,35 L 400,85 L 0,85 Z" />
+        </Grid>
+
+        <!-- Contenido principal -->
+        <ScrollView>
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Encabezado curvo superior -->
+                <Grid HeightRequest="215">
+                    <Path Fill="#EBD2DA"
+                          Aspect="Fill"
+                          Data="M 0,0 L 400,0 L 400,165 Q 280,195 160,205 Q 60,212 0,185 Z" />
+
+                    <Path Fill="#6A132F"
+                          Aspect="Fill"
+                          Data="M 0,0 L 400,0 L 400,145 Q 200,225 0,145 Z" />
+
+                    <!-- Logo y título -->
+                    <VerticalStackLayout VerticalOptions="Center"
+                                         HorizontalOptions="Center"
+                                         Spacing="10"
+                                         Margin="0,0,0,18">
+                        <Grid WidthRequest="68" HeightRequest="48" HorizontalOptions="Center">
+                            <Path Stroke="White"
+                                  StrokeThickness="2.2"
+                                  StrokeLineJoin="Round"
+                                  Data="M 34,10 C 25,4 12,4 4,7 L 4,38 C 12,35 25,35 34,41 C 43,35 56,35 64,38 L 64,7 C 56,4 43,4 34,10 Z" />
+                            <Path Stroke="White"
+                                  StrokeThickness="2.2"
+                                  Data="M 34,10 L 34,41" />
+                            <Path Stroke="White"
+                                  StrokeThickness="2"
+                                  StrokeLineJoin="Round"
+                                  Data="M 1,11 L 1,42 C 11,39 24,39 34,44 C 44,39 57,39 67,42 L 67,11" />
+                        </Grid>
+
+                        <Label Text="Biblioteca UTS"
+                               TextColor="White"
+                               FontSize="22"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Grid>
+                <!-- Formulario -->
+                <VerticalStackLayout Padding="28,20,28,30" Spacing="16">
+
+                    <Label Text="Iniciar Sesión"
+                           TextColor="#6A132F"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           Margin="0,0,0,10" />
+
+                    <!-- Grupo: Correo -->
+                    <VerticalStackLayout Spacing="6">
+                        <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                       
+                            <Label Text="Correo"
+                                   TextColor="#6A132F"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <Border BackgroundColor="White"
+                                Stroke="#D0C7CA"
+                                StrokeThickness="1"
+                                HeightRequest="52"
+                                Padding="15,0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+
+                            <Entry Placeholder="Ingresa tu usuario o correo"
+                                   PlaceholderColor="#7A7A7A"
+                                   TextColor="#222222"
+                                   FontSize="16"
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="Center" />
+                        </Border>
+                    </VerticalStackLayout>
+
+
+                    <!-- Grupo: Contraseña -->
+                    <VerticalStackLayout Spacing="6">
+                        <HorizontalStackLayout Spacing="8" VerticalOptions="Center">
+                    
+                            <Label Text="Contraseña"
+                                   TextColor="#6A132F"
+                                   FontSize="15"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <Border BackgroundColor="White"
+                                Stroke="#D0C7CA"
+                                StrokeThickness="1"
+                                HeightRequest="52"
+                                Padding="15,0">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+
+                            <Entry Placeholder="Ingresa tu contraseña"
+                                   IsPassword="True"
+                                   PlaceholderColor="#7A7A7A"
+                                   TextColor="#222222"
+                                   FontSize="16"
+                                   BackgroundColor="Transparent"
+                                   VerticalOptions="Center" />
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <!-- Checkbox: Mostrar contraseña -->
+                    <HorizontalStackLayout Spacing="8" Margin="0,2,0,8">
+                        <CheckBox Color="#6A132F"
+                                  VerticalOptions="Center" />
+                        <Label Text="Mostrar contraseña"
+                               TextColor="#222222"
+                               FontSize="15"
+                               VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <!-- Botón Ingresar -->
+                    <Button Text="Ingresar"
+                            BackgroundColor="#6A132F"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            HeightRequest="54"
+                            CornerRadius="12" />
+
+                    <!-- Enlace de recuperación -->
+                    <Label Text="¿Olvidaste tu contraseña?"
+                           TextColor="#6A132F"
+                           FontSize="14"
+                           HorizontalOptions="Center"
+                           Margin="0,12,0,0" />
+
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
